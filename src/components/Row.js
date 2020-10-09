@@ -6,12 +6,12 @@ const baseUrl = "https://api.themoviedb.org/3";
 const imageBaseUrl = "https://image.tmdb.org/t/p/original/";
 
 const Row = ({ title, fetchUrl, isLargePoster }) => {
-  const [movies, setmovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(`${baseUrl}${fetchUrl}`);
-      setmovies(request.data.results);
+      setMovies(request.data.results);
       return request;
     }
     fetchData();
@@ -28,7 +28,7 @@ const Row = ({ title, fetchUrl, isLargePoster }) => {
               }`}
               key={movie.id}
               src={`${imageBaseUrl}${
-                isLargePoster ? movie.poster_path : movie.backdrop_path
+                isLargePoster ? movie?.poster_path : movie?.backdrop_path
               }`}
               alt={movie.title}
             />

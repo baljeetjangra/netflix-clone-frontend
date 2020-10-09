@@ -1,6 +1,7 @@
 import React from "react";
 import Row from "./components/Row";
 import requests from "./utils/request";
+import Banner from "./components/Banner";
 
 function App() {
   return (
